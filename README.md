@@ -1,7 +1,7 @@
 oscLineSender.ps1
 ====
 
-Overview
+# Overview
 
 標準入力から VaNiiMenu に OSCメッセージを送ることができる PowerShell スクリプト
 
@@ -44,25 +44,25 @@ oscLineSender.ps1 -targetIpAddr=127.0.0.1 -targetUdpPort=39972 -oscAddr=/VaNiiMe
 2. コマンドプロンプト（cmd.exe）から実行する
 - コマンドプロンプトを起動します。
 - cd コマンドでインストールディレクトリに移動します。
-- powershell -command "Set-Executionpolicy remotesigned -s process -f;.¥oscLineSender.ps1"
+- `powershell -command "Set-Executionpolicy remotesigned -s process -f;.¥oscLineSender.ps1"`
 
 3. PowerShell コンソールから実行する
 - PowerShell コンソールを起動します。
 - cd コマンドでインストールディレクトリに移動します。
-- 必要に応じて Set-Executionpolicy remotesigned -s process -f を実行してください。
-- \[Reflection.Assembly]::LoadFrom("[配置したディレクトリのフルパス]¥Rug.Osc.dll")
-- .¥oscLineSender.ps1
+- 必要に応じて `Set-Executionpolicy remotesigned -s process -f` を実行してください。
+- `[Reflection.Assembly]::LoadFrom("[配置したディレクトリのフルパス]¥Rug.Osc.dll")`
+- `.¥oscLineSender.ps1`
 
 ## Licence
 
-[MIT](https://github.com/eijis-pan/tkchVrcVaNiiUtils/LICENCE.txt) Licence
+[MIT Licence](https://github.com/eijis-pan/tkchVrcVaNiiUtils/LICENCE.txt) 
 
 ## Author
 
-github:[eijis](https://github.com/eijis-pan) 
-twitter:[eijis_pan](https://twitter.com/eijis_pan)
+- github:[eijis](https://github.com/eijis-pan) 
+- twitter:[eijis_pan](https://twitter.com/eijis_pan)
 
 ## VS
 
-go言語で実装された oscer を使った方が簡単かも
+go言語で実装された oscerコマンド を使った方が簡単かも
 https://github.com/aike/oscer

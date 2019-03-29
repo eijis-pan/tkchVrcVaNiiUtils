@@ -1,8 +1,6 @@
 oscLineSender.ps1
 ====
 
-# Overview
-
 標準入力から VaNiiMenu に OSCメッセージを送ることができる PowerShell スクリプト
 
 ## Description
@@ -17,7 +15,9 @@ UDPで39972ポートに文字列を送信します。
 
 ## Requirement
 
-Rug.Osc ライブラリを使用します。（Copyright (C) 2013 Phill Tew (peatew@gmail.com)　https://bitbucket.org/rugcode/rug.osc）
+Rug.Osc ライブラリを使用します。（Copyright (C) 2013 Phill Tew (peatew@gmail.com)
+
+https://bitbucket.org/rugcode/rug.osc）
 
 ## Install
 

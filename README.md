@@ -54,16 +54,24 @@ oscLineSender.ps1 -targetIpAddr=127.0.0.1 -targetUdpPort=39972 -oscAddr=/VaNiiMe
 - `[Reflection.Assembly]::LoadFrom("[配置したディレクトリのフルパス]¥Rug.Osc.dll")`
 - `.¥oscLineSender.ps1`
 
-## Licence
-
-[MIT Licence](https://github.com/eijis-pan/tkchVrcVaNiiUtils/LICENCE.txt) 
-
-## Author
-
-github:[eijis](https://github.com/eijis-pan)  または twitter:[eijis_pan](https://twitter.com/eijis_pan)
-
 ## VS
 
 go言語で実装された oscerコマンド を使った方が簡単かも
 
 https://github.com/aike/oscer
+
+## Author
+
+github:[eijis](https://github.com/eijis-pan)  または twitter: @ eijis_pan
+
+## Licence
+
+[MIT Licence](https://github.com/eijis-pan/tkchVrcVaNiiUtils/LICENCE.txt) 
+
+## Disclaimer
+
+利用は自己責任でお願いします。
+本プログラムは、なんの欠陥もないという無制限の保証を行うものではありません。
+本プログラムに関する不具合修正や質問についてのお問い合わせもお受けできない場合があります。
+本プログラムの利用によって生じたあらゆる損害に対して、一切の責任を負いません。
+本プログラムの利用によって生じるいかなる問題についても、その責を負いません。

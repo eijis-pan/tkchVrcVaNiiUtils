@@ -36,6 +36,8 @@ oscLineSender.ps1 -targetIpAddr=127.0.0.1 -targetUdpPort=39972 -oscAddr=/VaNiiMe
 - PowerShellスクリプト（.ps1 拡張子）のローカル実行を許可する設定がされていること
 が必要です。
 
+以下の３通りの方法があります。
+
 1. バッチファイルを実行する（一番簡単な方法）
 - oscLineSender.bat を実行する
 
@@ -57,7 +59,8 @@ oscLineSender.ps1 -targetIpAddr=127.0.0.1 -targetUdpPort=39972 -oscAddr=/VaNiiMe
 
 ## Author
 
-[eijis](https://github.com/eijis-pan) twitter:[eijis_pan](https://twitter.com/eijis_pan)
+github:[eijis](https://github.com/eijis-pan) 
+twitter:[eijis_pan](https://twitter.com/eijis_pan)
 
 ## VS
 

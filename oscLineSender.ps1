@@ -5,8 +5,8 @@ Param(
 )
 
 #Clear-Host
-Write-Host " ["$MyInvocation.MyCommand.Name"] æ¨™æº–å…¥åŠ›ã‚’OSCé€ä¿¡ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã§ã™ã€‚"
-Write-Host "Rug.Osc ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’ä½¿ç”¨ã—ã¦ã„ã¾ã™ã€‚ï¼ˆCopyright (C) 2013 Phill Tew (peatew@gmail.com)ã€€https://bitbucket.org/rugcode/rug.oscï¼‰"
+Write-Host " ["$MyInvocation.MyCommand.Name"] •W€“ü—Í‚ğOSC‘—M‚·‚éƒvƒƒOƒ‰ƒ€‚Å‚·B"
+Write-Host "Rug.Osc ƒ‰ƒCƒuƒ‰ƒŠ‚ğg—p‚µ‚Ä‚¢‚Ü‚·BiCopyright (C) 2013 Phill Tew (peatew@gmail.com)@https://bitbucket.org/rugcode/rug.oscj"
 
 $ErrorActionPreference="Ignore"
 [Reflection.Assembly]::LoadFrom("Rug.Osc.dll")
@@ -15,7 +15,7 @@ $ErrorActionPreference="Stop"
 
 try 
 {
-    Write-Host "é€ä¿¡å…ˆIPã‚¢ãƒ‰ãƒ¬ã‚¹ $targetIpAddr é€ä¿¡å…ˆUDPãƒãƒ¼ãƒˆç•ªå· $targetUdpPort OSCã‚¢ãƒ‰ãƒ¬ã‚¹ $oscAddr"
+    Write-Host "‘—MæIPƒAƒhƒŒƒX $targetIpAddr ‘—MæUDPƒ|[ƒg”Ô† $targetUdpPort OSCƒAƒhƒŒƒX $oscAddr"
     Write-Host("")
 
     $sendAddress = [System.Net.IPAddress]::Parse($targetIpAddr)
@@ -24,12 +24,12 @@ try
 
     while ($true)
     {
-        Write-Host "æ¨™æº–å…¥åŠ›ã‹ã‚‰å…¥åŠ›å¾…ã¡... ï¼ˆCntl + c ã§çµ‚äº†ï¼‰"
+        Write-Host "•W€“ü—Í‚©‚ç“ü—Í‘Ò‚¿... iCntl + c ‚ÅI—¹j"
         $readLine = [System.Console]::In.ReadLine()
         if ([string]::IsNullOrEmpty($readLine)) { continue } else { $oscString = $readLine }
 
-        Write-Host "OSCã‚¢ãƒ‰ãƒ¬ã‚¹ [ $oscAddr ], OSC-string [ $oscString ]"
-        Write-Host "é€ä¿¡å†…å®¹ [ $oscAddr $oscString ]"
+        Write-Host "OSCƒAƒhƒŒƒX [ $oscAddr ], OSC-string [ $oscString ]"
+        Write-Host "‘—M“à—e [ $oscAddr $oscString ]"
         
         $oscMessage = New-Object Rug.Osc.OscMessage($oscAddr, $oscString)
         $oscSender.Send( $oscMessage )
@@ -37,11 +37,11 @@ try
 }
 catch [Exception]
 {
-    [System.Console]::Error.WriteLine("ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚")
+    [System.Console]::Error.WriteLine("—áŠO‚ª”­¶‚µ‚Ü‚µ‚½B")
     [System.Console]::Error.WriteLine($_.Exception)
  }
 finally
 {
     if( $oscSender ) { $oscSender.Close() }
-    Write-Host " ["$MyInvocation.MyCommand.Name"]å‡¦ç†ã‚’çµ‚äº†ã—ã¾ã™ã€‚"
+    Write-Host " ["$MyInvocation.MyCommand.Name"]ˆ—‚ğI—¹‚µ‚Ü‚·B"
 }

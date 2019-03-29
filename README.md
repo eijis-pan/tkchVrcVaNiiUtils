@@ -1,9 +1,3 @@
-# oscLineSender.ps1
-
-
-
-条件
-
 oscLineSender.ps1
 ====
 
@@ -32,7 +26,9 @@ Rug.Osc ライブラリを使用します。（Copyright (C) 2013 Phill Tew (pea
 
 ## Usage
 
+```
 oscLineSender.ps1 -targetIpAddr=127.0.0.1 -targetUdpPort=39972 -oscAddr=/VaNiiMenu/Alert
+```
 （パラメタは省略可能です。例としてパラメタに指定している値が省略時のデフォルト値です。）
 
 実行するためには
@@ -52,7 +48,7 @@ oscLineSender.ps1 -targetIpAddr=127.0.0.1 -targetUdpPort=39972 -oscAddr=/VaNiiMe
 - PowerShell コンソールを起動します。
 - cd コマンドでインストールディレクトリに移動します。
 - 必要に応じて Set-Executionpolicy remotesigned -s process -f を実行してください。
-- [Reflection.Assembly]::LoadFrom("[配置したディレクトリのフルパス]¥Rug.Osc.dll")
+- \[Reflection.Assembly]::LoadFrom("[配置したディレクトリのフルパス]¥Rug.Osc.dll")
 - .¥oscLineSender.ps1
 
 ## Licence

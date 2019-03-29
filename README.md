@@ -7,7 +7,8 @@ oscLineSender.ps1
 
 ## Description
 
-VaNiiMenu の OSC受信機能を試すために PowerShell スクリプトで作成した Rug.Osc ライブラリ の Wrapper です。
+VaNiiMenu の OSC受信機能を試すために PowerShell スクリプトで作成した Rug.Osc ライブラリの Wrapper です。
+
 UDPで39972ポートに文字列を送信します。
 
 動作確認環境
@@ -59,10 +60,10 @@ oscLineSender.ps1 -targetIpAddr=127.0.0.1 -targetUdpPort=39972 -oscAddr=/VaNiiMe
 
 ## Author
 
-- github:[eijis](https://github.com/eijis-pan) 
-- twitter:[eijis_pan](https://twitter.com/eijis_pan)
+github:[eijis](https://github.com/eijis-pan)  または twitter:[eijis_pan](https://twitter.com/eijis_pan)
 
 ## VS
 
 go言語で実装された oscerコマンド を使った方が簡単かも
+
 https://github.com/aike/oscer

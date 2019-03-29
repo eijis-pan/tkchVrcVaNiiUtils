@@ -20,7 +20,7 @@ Rug.Osc ライブラリを使用します。（Copyright (C) 2013 Phill Tew (pea
 
 ## Install
 
-- oscLineSender.ps1 と oscLineSender.bat をどこか適当なディレクトリに保存する
+- oscLineSender.ps1 と oscLineSender.bat をどこか適当なディレクトリにSJISで保存する
 - Rug.Osc.dll を入手し上記と同じディレクトリに置く
 - VaNiiMenu で受信機能を有効にする（ファイアウォールのブロックダイアログが出たら許可する）
 
@@ -53,11 +53,11 @@ oscLineSender.ps1 -targetIpAddr=127.0.0.1 -targetUdpPort=39972 -oscAddr=/VaNiiMe
 
 ## Licence
 
-[MIT](https://github.com/eijis-pan/tkchVrcVaNiiUtils/LICENCE.txt)
+[MIT](https://github.com/eijis-pan/tkchVrcVaNiiUtils/LICENCE.txt) Licence
 
 ## Author
 
-[eijis](https://github.com/eijis-pan)
+[eijis](https://github.com/eijis-pan) twitter:[eijis_pan](https://twitter.com/eijis_pan)
 
 ## VS
 

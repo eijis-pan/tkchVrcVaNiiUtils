@@ -4,8 +4,8 @@ lineFilter.ps1
 oscLineSender.ps1
 ====
 
-VRChat のログファイルを監視し任意のイベントを検出し
-VaNiiMenu に OSCメッセージを送ることができる一連の PowerShell スクリプトと起動バッチ
+VRChat のログファイルを監視し任意のイベントを検出すると
+VaNiiMenu に OSCメッセージを送る一連の PowerShell スクリプトと起動バッチ 
 
 ## Description
 

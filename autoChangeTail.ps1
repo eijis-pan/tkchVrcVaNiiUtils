@@ -56,6 +56,23 @@ try
         # 1秒間隔のチェックで問題ないと思われる
         $changedInfo= $watcher.WaitForChanged([IO.WatcherChangeTypes]::All, 1000)
         
+        # Createdイベントが来ない場合があるのでここでチェックする
+        if( $changedInfo.TimedOut )
+        {
+            $files = Get-ChildItem -Path $targeDir -Filter $filter | Where-Object { ! $_.PSIsContainer } | Sort-Object CreationTimeUtc -Descending
+            if( 0 -lt $files.Count ) # a < b
+            {
+                $file = Split-Path $files[0] -Leaf
+                if( $targetFileName -ne $file)
+                {
+                    $script:lastReadPosition = $(Get-ChildItem -Path $targeDir $file ).Length
+                    $targetFileName = $file
+                    if( ! $quiet ) { Write-Host "新しい該当ファイル [ $file ]" }
+                    if( ! $quiet ) { Write-Host "ファイルを監視し、標準出力へ出力します。" }
+                }
+            }
+        }
+
         # tail -f しているファイルのイベントかどうか
         $targetChanged = $false
         if(
@@ -69,6 +86,7 @@ try
 
         switch( $changedInfo.ChangeType )
         {
+            <# Createdイベントが来ない場合があるのでここでの処理はしない
             Created
             {
                 # tail -f しているファイルではなかった場合
@@ -77,12 +95,15 @@ try
                     $targetFileName = & $ScanNewerFile 
                 }
             }
+            #>
             Deleted
             {
                 # tail -f しているファイルだった場合
                 if( $targetChanged ) {
                     # tail -f を止めて、ファイル作成を監視する状態に戻す
                     $targetFileName = ""
+                    if( ! $quiet ) { Write-Host "該当ファイルが削除されました。" }
+                    if( ! $quiet ) { Write-Host "ディレクトリ監視状態に戻ります。" }
                 }
             }
 #            Changed { } # Changedだけだと必ずしも正しいタイミングで検出できるとは限らない
@@ -94,6 +115,11 @@ try
                     $targetFileName = $changedInfo.Name
                 }
             }
+       }
+
+       if([string]::IsNullOrEmpty($targetFileName))
+       {
+           continue
        }
 
         # 前回の終了位置から末尾を取り出して標準出力する
@@ -138,7 +164,11 @@ try
         }
         catch [Exception]
         {
-            if( ! $quiet ) { Write-Host "例外が発生しました。（スキップして監視は続行）" }
+            # tail -f を止めて、ファイル作成を監視する状態に戻す
+            $targetFileName = ""
+            if( ! $quiet ) { Write-Host "例外が発生しました。ディレクトリ監視状態に戻ります。" }
+
+            #if( ! $quiet ) { Write-Host "例外が発生しました。（スキップして監視は続行）" }
             if( ! $quiet ) { Write-Host $_.Exception }
         }
     }

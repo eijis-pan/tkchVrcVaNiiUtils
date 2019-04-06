@@ -17,6 +17,7 @@ VRChat のログファイルを監視し任意のイベントを検出すると 
 - アバター変更（Avatar change）
 - インスタンスからの退出（OnPlayerLeft）
 - リスポーン（Spawning）
+
 です。
 
 VRChat のログファイルに出力される内容を詳細に把握されている方であれば<br>
@@ -44,9 +45,10 @@ https://bitbucket.org/rugcode/rug.osc）
 VRChat の起動前でも起動後でも構いません。最新のログファイルを検出します。
 
 それぞれのファイルについての説明は、
-- README_autoChangeTail.md （準備中）
+- README_autoChangeTail.md
 - README_lineFilter.md （準備中）
 - README_oscLineSender.md
+
 を参照してください。
 
 PowerShell なのに、わざわざ cmd.exe 経由で起動させてパイプで繋いでいる理由は、

@@ -147,6 +147,7 @@ try
                     finally 
                     {
                         $sr.Close()
+                        $sr.Dispose()
                     }
                 }
                 else {
@@ -160,6 +161,7 @@ try
             finally 
             {
                 $fs.Close()
+                $fs.Dispose()
             }
         }
         catch [Exception]
@@ -180,5 +182,6 @@ catch [Exception]
 }
 finally
 {
+    $watcher.Dispose()
     if( ! $quiet ) { Write-Host " ["$MyInvocation.MyCommand.Name"]èàóùÇèIóπÇµÇ‹Ç∑ÅB" }
 }

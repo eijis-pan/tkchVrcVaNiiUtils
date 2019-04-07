@@ -18,22 +18,33 @@ try
     Write-Host "送信先IPアドレス $targetIpAddr 送信先UDPポート番号 $targetUdpPort OSCアドレス $oscAddr"
     Write-Host("")
 
-    $sendAddress = [System.Net.IPAddress]::Parse($targetIpAddr)
+    $sendAddress = [System.Net.IPAddress]::Parse($targetIpAddr)  # Dispose() 対象外
     $oscSender = New-Object Rug.Osc.OscSender($sendAddress, 0 , $targetUdpPort)
-    $oscSender.Connect()
-
-    while ($true)
+    try
     {
-        Write-Host "標準入力から入力待ち... （Cntl + c で終了）"
-        $readLine = [System.Console]::In.ReadLine()
-        if ([string]::IsNullOrEmpty($readLine)) { continue } else { $oscString = $readLine }
+        $oscSender.Connect()
 
-        Write-Host "OSCアドレス [ $oscAddr ], OSC-string [ $oscString ]"
-        Write-Host "送信内容 [ $oscAddr $oscString ]"
-        
-        $oscMessage = New-Object Rug.Osc.OscMessage($oscAddr, $oscString)
-        $oscSender.Send( $oscMessage )
-    }        
+        while ($true)
+        {
+            Write-Host "標準入力から入力待ち... （Cntl + c で終了）"
+            $readLine = [System.Console]::In.ReadLine()
+            if ([string]::IsNullOrEmpty($readLine)) { continue } else { $oscString = $readLine }
+
+            Write-Host "OSCアドレス [ $oscAddr ], OSC-string [ $oscString ]"
+            Write-Host "送信内容 [ $oscAddr $oscString ]"
+
+            $oscMessage = New-Object Rug.Osc.OscMessage($oscAddr, $oscString) # Dispose() 対象外
+            $oscSender.Send( $oscMessage )
+        }
+    }
+    catch
+    {
+        throw
+    }
+    finally
+    {
+        $oscSender.Dispose()
+    }
 }
 catch [Exception]
 {
@@ -42,6 +53,5 @@ catch [Exception]
  }
 finally
 {
-    if( $oscSender ) { $oscSender.Close() }
     Write-Host " ["$MyInvocation.MyCommand.Name"]処理を終了します。"
 }

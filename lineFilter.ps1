@@ -21,9 +21,10 @@ try
 
         $writeLine = ""
         if(
-            $readLine -match "\s+(?<PlayerName>\S+?) received (?<EventName>Avatar change?)" -Or        # アバター変更
-            $readLine -match "\[NetworkManager\] (?<EventName>OnPlayerLeft?) (?<PlayerName>\S+?)\s*$" -Or  # インスタンス退出
-            $readLine -match "\[Spawn\] (?<EventName>Spawning?) (?<PlayerName>\S+?) at location"  # リスポーン
+#            $readLine -match "\s+(?<PlayerName>\S+?) received (?<EventName>Avatar change?)" -Or        # アバター変更
+            $readLine -match "\[NetworkManager\] (?<EventName>OnPlayerLeft?) (?<PlayerName>.+?)$" -Or  # インスタンス退出
+#            $readLine -match "\[Spawn\] (?<EventName>Spawning?) (?<PlayerName>\S+?) at location"  # リスポーン
+            $readLine -match "\[NetworkManager\] (?<EventName>OnPlayerJoined?) (?<PlayerName>.+?)$"    # インスタンス入場
             )
         {
             if( ! $quiet ) { Write-Host "イベント [ "$Matches.EventName" ], プレイヤー名 [ "$Matches.PlayerName" ]" }

@@ -14,9 +14,8 @@ autoChangeTail.ps1、lineFilter.ps1、oscLineSender.ps1 が起動され<br>
 VRChat のログファイルを監視し任意のイベントを検出すると VaNiiMenu に通知します。
 
 監視するイベントは
-- アバター変更（Avatar change）
+- インスタンス入場（OnPlayerJoined）
 - インスタンスからの退出（OnPlayerLeft）
-- リスポーン（Spawning）←どうやら、自プレイヤーについてのログしか出ないらしい
 
 です。
 
@@ -25,7 +24,7 @@ lineFilter.ps1 を修正することで色々と通知内容を増やすこと�
 
 動作確認環境
 - Windows 10
-- VRChat w_2019.1.4p2
+- VRChat w_2019.2.2 (Build 772)
 - VaNiiMenu v0.10h beta（https://sabowl.sakura.ne.jp/gpsnmeajp/unity/vaniimenu/）
 
 ## Requirement

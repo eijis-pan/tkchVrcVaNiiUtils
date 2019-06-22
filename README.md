@@ -16,6 +16,9 @@ VRChat のログファイルを監視し任意のイベントを検出すると 
 監視するイベントは
 - インスタンス入場（OnPlayerJoined）
 - インスタンスからの退出（OnPlayerLeft）
+- インスタンス入場時にマスターになった（I am MASTER）※プレイヤー名は出ません
+- インスタンス入場時にマスターではなかった（I am *NOT* MASTER）※プレイヤー名は出ません
+- インスタンスのマスター変更（OnMasterClientSwitched）※プレイヤー名は出ません
 
 です。
 
@@ -24,7 +27,7 @@ lineFilter.ps1 を修正することで色々と通知内容を増やすこと�
 
 動作確認環境
 - Windows 10
-- VRChat w_2019.2.2 (Build 772)
+- VRChat w_2019.2.4 (Build 801)
 - VaNiiMenu v0.10h beta（https://sabowl.sakura.ne.jp/gpsnmeajp/unity/vaniimenu/）
 
 ## Requirement

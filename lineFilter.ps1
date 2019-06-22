@@ -21,6 +21,9 @@ try
 
         $writeLine = ""
         if(
+            $readLine -match "(?<EventName>I am MASTER?)$" -Or  # インスタンスのマスターになった
+            $readLine -match "(?<EventName>I am \*NOT\* MASTER?)$" -Or  # インスタンスのマスターではない
+            $readLine -match "\[NetworkManager\] (?<EventName>OnMasterClientSwitched?)$" -Or  # インスタンスのマスターが変わった
 #            $readLine -match "\s+(?<PlayerName>\S+?) received (?<EventName>Avatar change?)" -Or        # アバター変更
             $readLine -match "\[NetworkManager\] (?<EventName>OnPlayerLeft?) (?<PlayerName>.+?)$" -Or  # インスタンス退出
 #            $readLine -match "\[Spawn\] (?<EventName>Spawning?) (?<PlayerName>\S+?) at location"  # リスポーン
